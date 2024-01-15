@@ -8,7 +8,7 @@ nav_order: 1
 ## Reading List
 {: .no_toc}
 
-### Table of contents
+Table of Contents
 {: .no_toc .text-delta}
 
 - TOC

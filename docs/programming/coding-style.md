@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Naming Convention
+title: Coding Style
 parent: Programming
 nav_order: 2
 ---
 
-## Naming Convention
+## Coding Style

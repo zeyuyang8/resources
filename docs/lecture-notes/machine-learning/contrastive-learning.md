@@ -1,7 +1,7 @@
 ---
 title: Contrastive Learning
 layout: default
-parent: Machine Learning
+parent: Machine Learning Blogs
 grand_parent: Lecture Notes
 ---
 

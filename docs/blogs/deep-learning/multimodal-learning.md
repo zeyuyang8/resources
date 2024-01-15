@@ -1,8 +1,8 @@
 ---
 title: Multimodal Learning
 layout: default
-parent: Machine Learning Blogs
-grand_parent: Lecture Notes
+parent: Deep Learning
+grand_parent: Blogs
 ---
 
 ## Multimodal Learning

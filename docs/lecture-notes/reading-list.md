@@ -16,5 +16,10 @@ Table of Contents
 
 ### Machine Learning
 
-- [Machine Learning Blogs](./machine-learning-blogs) by Zeyu Yang
-- [Probabilistic Machine Learning: An Introduction](https://probml.github.io/pml-book/book1.html) by Kevin Murphy
+#### Textbooks
+
+- [Probabilistic Machine Learning: An Introduction](https://probml.github.io/pml-book/book1.html)
+
+#### Blogs
+
+- [Deep Learning](../blogs/deep-learning)

@@ -6,5 +6,3 @@ nav_order: 1
 ---
 
 ## Reading List
-
-### Statistical Machine Learning

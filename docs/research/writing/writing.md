@@ -1,8 +1,8 @@
 ---
-layout: default
 title: Writing
+layout: default
+parent: Research
 has_children: true
-permalink: docs/writing
 ---
 
 ## Writing

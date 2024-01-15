@@ -5,3 +5,4 @@ has_children: true
 permalink: docs/lecture-notes
 ---
 
+## Lecture Notes

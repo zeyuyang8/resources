@@ -1,6 +1,6 @@
 ---
 title: Machine Learning
 layout: default
-parent: Posts
+parent: Math
 has_children: true
 ---

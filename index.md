@@ -8,16 +8,14 @@ permalink: /
 
 ## Resources
 
+### Posts
+
 ### Programming
-
-### Writing
-
-### Presenting
 
 ### Research
 
-### Teaching
+#### Writing
 
-### Job Search
+#### Presenting
 
 ### Miscellaneous

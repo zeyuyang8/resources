@@ -1,6 +1,6 @@
 ---
 title: Machine Learning
 layout: default
-parent: Math
+parent: Lecture Notes
 has_children: true
 ---

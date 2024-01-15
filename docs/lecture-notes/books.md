@@ -1,10 +1,10 @@
 ---
 layout: default
-title: Books
-parent: Math
+title: Reading List
+parent: Lecture Notes
 nav_order: 1
 ---
 
-## Books
+## Reading List
 
 ### Statistical Machine Learning

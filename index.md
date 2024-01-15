@@ -8,3 +8,7 @@ permalink: /
 ## Resources
 
 Hope our website helps you with your research!
+
+$$
+E = mc^2
+$$

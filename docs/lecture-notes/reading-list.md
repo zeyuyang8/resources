@@ -16,10 +16,6 @@ Table of Contents
 
 ### Machine Learning
 
-#### Textbooks
+**Textbooks**
 
 - [Probabilistic Machine Learning: An Introduction](https://probml.github.io/pml-book/book1.html)
-
-#### Blogs
-
-- [Deep Learning](../blogs/deep-learning)

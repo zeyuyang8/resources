@@ -9,16 +9,17 @@ permalink: docs/datasets
 
 ### Naming Convention
 
-#### Directories
+We set a standard naming convention for all datasets. This is to ensure that all datasets are organized in a consistent manner.
 
-- Folders in `kebab-case`.
+**General Rules**
 
-#### JSON
+- Directories in `kebab-case`.
+- Files in `kebab-case`.
 
-- Files in `kebab-case.json`.
+**JSON**
+
 - Keys in `camelCase`.
 
-#### CSV
+**CSV**
 
-- Files in `kebab-case.csv`.
 - Headers in `CAPITAL LETTERS`.

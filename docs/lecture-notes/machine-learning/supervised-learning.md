@@ -168,7 +168,7 @@ Once we choose a class of $$f$$ and design its structure, what we need to do is 
 
 ## Supervised Learning with Deep Networks
 
-### Supervised Learning Revision
+### Revision of Supervised Learning
 
 Let us revise supervised learning before we start to explain how to use deep networks for supervised learning. Supervised learning aims to have a function to fit a sequence of input-output pairs called labeled data. The input can be a digital form of anything. For example, the pixel values of a gray-scale image are saved in a two-dimensional matrix. The features of a house, such as its area and type can be saved in a vector. The output can be a number for regression or a category label for classification. The function that maps an input to an output is determined by its parameters, and we train its parameters by minimizing the loss of the function on the training data set. Before training the parameters of a function, we need to design the structure of the function.
 
@@ -355,7 +355,7 @@ Now we have the deep network's structure and need to optimize the parameters in 
 
 ## Training a Deep Network
 
-### Revision
+### Revision of Supervised Learning with Deep Networks
 
 We introduced supervised learning and deep networks in the previous pages. The goal of supervised learning is to find a function mapping an input to output with minimal loss. A deep network can be considered as a function with parameters, and it maps an input to an output that is either a number (regression) or a probability distribution (classification). The properties of a deep network are determined by its structure (how layers are connected) and its parameters. After we design the structure of a deep network, we need to train its parameters by minimizing the loss of the deep network on the training data set and evaluate the performance of the deep network on the test data set. Here are the notations we used in the previous pages.
 

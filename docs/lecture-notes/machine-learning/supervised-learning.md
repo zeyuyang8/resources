@@ -351,9 +351,9 @@ Then, we can design a deep network as shown in the figure below. You can see how
     <img src="supervised-learning.assets/imgs/classification.png" width="80%" alt="deep network for classification">
 </p>
 
-Now we have the deep network's structure and need to optimize the parameters in all the layers (some layers like activation layers do not have parameters). Recall that the essence of optimizing the parameters $$\theta$$ of a function $$f$$ is to minimize $$\mathcal{L}(\theta, \mathcal{D})$$ on the training data set. We will talk about how to train the parameters of a deep network in section [Training a Deep Network](#training-a-deep-network).
+Now we have the deep network's structure and need to optimize the parameters in all the layers (some layers like activation layers do not have parameters). Recall that the essence of optimizing the parameters $$\theta$$ of a function $$f$$ is to minimize $$\mathcal{L}(\theta, \mathcal{D})$$ on the training data set. We will talk about how to train the parameters of a deep network in section [Training Deep Networks](#training-deep-networks).
 
-## Training a Deep Network
+## Training Deep Networks
 
 ### Revision of Supervised Learning with Deep Networks
 

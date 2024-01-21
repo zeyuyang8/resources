@@ -75,7 +75,7 @@ Y_3
 \end{bmatrix}
 $$
 
-**Loss Function for Regression**
+**Loss function for regression**
 
 The goal of supervised learning is to train a function that maps an input to output. Let us denote the function by $$f$$. The question is how do we know $$f$$ is good? When we say $$f$$ is good, it implicitly means $$f$$ is good at something. For example, $$f$$ is good at predicting Boston's house price, but $$f$$ could not be good at predicting others at all. Thus, if we define a loss to evaluate $$f$$, the loss depends on both $$f$$ itself and the data set we use. Since $$f$$ is determined by its parameters, we can say the loss is a function of the parameters of $$f$$ and the data set.
 
@@ -144,7 +144,7 @@ Y_{3,1} & Y_{3,2} & Y_{3,3}
 \end{bmatrix}
 $$
 
-**Loss Function for Classification**
+**Loss function for classification**
 
 We want a vector-valued function $$f$$ whose output $$f_{\theta} (X_{i})$$ is the discrete probability distribution of Bob's action. $$f_{\theta} (X_{i})_j$$ is the $$j^{\text{th}}$$ element of the vector $$f_{\theta} (X_{i})$$ that represents the probability of the $$j^{\text{th}}$$ class. All $$f_{\theta}(X_i)_j$$ should be a real number between $$0$$ and $$1$$ and they sum up to $$1$$. For example, $$f_{\theta} (X_{i})$$ could be $$\left[\begin{array}{l} 0.7 & 0.2 & 0.1\end{array}\right]$$, which means Bob has a seventy percent chance to rent, a twenty percent chance to hesitate, and a ten percent chance to ignore.
 
@@ -160,7 +160,7 @@ $$-\sum_{j}Y_{i,j}\log f_{\theta}(X_i)_j$$ is the cross-entropy for the $$i^{\te
 
 You may wonder why we use MSE in regression and mean cross-entropy in classification. The intuition is that we want to maximize the likelihood of the output in the data set given by the input and $$f$$. After a series of simplifications, we can get the loss functions like MSE and mean cross-entropy. You can take a look at [Probabilistic Machine Learning: An Introduction](https://probml.github.io/pml-book/book1.html) for more details.
 
-**Training Regression and Classfication Models**
+**Training regression and classfication models**
 
 There are various classes of $$f$$ that can be used for regression/classification. Linear models including linear regression, logistic regression, etc. are often applied to simple data sets. Linear regression is for regression and logistic regression is for classification, although its name contains "regression". Deep networks, on the other hand, are more powerful than linear models, especially when dealing with complex data sets, but deep networks take more time to train than linear models. Deep networks can be used for either regression or classification, depending on the structure of deep networks. We describe deep networks in section [Supervised Learning with Deep Networks](#supervised-learning-with-deep-networks).
 
@@ -209,7 +209,7 @@ Here is a visualization of a deep network consisting of a chain of layers. We na
 
 Now we know the structure (how layers are connected) and parameters are the two factors that affect the properties of a deep network. In this part, we will introduce two common types of layers: linear and activation. We will explain how linear layers and activation layers work and their parameters.
 
-**Linear Layers**
+**Linear layers**
 
 Linear layers map a vector in one vector space to another vector space. The input is a row vector in $$M_1$$-dimensional space, and the output is a row vector in $$M_2$$-dimensional space. A linear layer multiplies the input row vector by a weight matrix whose shape is $$M_1$$ by $$M_2$$ and adds a bias row vector whose shape is $$1$$ by $$M_2$$. Let us say we have a linear layer at the $$k^{\text{th}}$$ layer of the deep network, so its parameters $$\theta_k$$ includes a weight matrix $$W_k$$ and a bias vector $$\boldsymbol{b}_k$$.
 
@@ -225,7 +225,7 @@ $$
 
 Notice that If multiple linear layers are connected sequentially, the effect is equivalent to only one linear layer. For regression problems, a linear layer that maps a vector to a scalar can be used as the output layer of a deep network.
 
-**Activation Layers - Nonlinearity**
+**Activation layers (nonlinearity)**
 
 There are two purposes of activation layers in deep networks. One purpose is to add nonlinearity, which allows deep networks to increase their depth so that they can be much more powerful as the later layers can leverage the features that are learned by earlier layers. The other purpose is to generate probability scores at the output layer of the deep network if the task is a classification problem.
 
@@ -258,7 +258,7 @@ $$
 \left[\begin{array}{l} 43 & 5 & 0 & 46 \end{array}\right]
 $$
 
-**Activation Layers - Probability Scores**
+**Activation layers (probability scores)**
 
 The second purpose of an activation layer is to be the output layer of a deep network to generate a probability score for classification problems. In this case, the input of the activation layer should be either a scalar (binary classification) or a vector (multiclass classification). For binary classification problems, we use Sigmoid to map the scalar real number input between negative infinity and positive infinity to a scalar real number output between $$0$$ and $$1$$ exclusive, which is the probability score. For multiclass classification problems, if the number of classes is $$M$$, then the input of the activation layer is a vector with $$M$$ elements, and we use Softmax to map the vector in $$M$$-dimensional space to a discrete probability distribution with length $$M$$.
 
@@ -319,7 +319,7 @@ In section [Example - Boston House Price Regression](#example---boston-house-pri
 
 We use the California house price data set ([link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_california_housing.html)) that has $$20640$$ entries, and each entry has $$8$$ numerical features and $$1$$ numerical output. All the input entries of the data set can be saved to $$X$$ that has $$20640$$ rows and $$8$$ columns. All the output entries of the data set can be saved to $$Y$$ that has $$20640$$ rows and $$1$$ column.
 
-**Deep Networks for Regression**
+**Deep networks for regression**
 
 We want to have a deep network whose output layer is a linear layer that maps a vector to a scalar. The deep network input is a row vector with $$8$$ elements, and the output is a real number representing the predicted house price. Here is our design of the structure of the deep network. You can see how the shape of the original input changes after each layer.
 
@@ -341,7 +341,7 @@ The [MNIST](http://yann.lecun.com/exdb/mnist/) data set is a database that has a
     <img src="supervised-learning.assets/imgs/minst.png" width="80%" alt="minst">
 </p>
 
-**Deep Networks for Classification**
+**Deep networks for classification**
 
 We want to construct a deep network with linear and activation layers. However, each input entry in the data set is a gray-scale image (two-dimensional matrix), not a vector. Therefore, we need to first flatten the $$28$$ by $$28$$ matrix into a vector with $$784$$ elements. All the flattened images in the data set can be saved to $$X$$ that has $$70000$$ rows and $$784$$ columns. All the output entries of the data set can be saved to $$Y$$ that has $$70000$$ rows and $$10$$ columns, as there are ten categories of digits.
 
@@ -382,7 +382,7 @@ $$
 
 So how do find the value of $$\theta$$ that minimizes $$\mathcal{L}(\theta, \mathcal{D})$$? If $$\mathcal{L}(\theta, \mathcal{D})$$ is convex, we can compute the value of $$\theta$$ to make $$\frac{\partial}{\partial\theta}\mathcal{L}(\theta, \mathcal{D})$$, which is the the gradient of $$\mathcal{L}(\theta, \mathcal{D})$$ with respect to $$\theta$$, equal to zero, and that point is the global minimum. However, in most cases, $$\mathcal{L}(\theta, \mathcal{D})$$ is not convex and it is hard to calculate the value of $$\theta$$ to make $$\frac{\partial}{\partial\theta}\mathcal{L}(\theta, \mathcal{D})$$ equal to zero unless $$\mathcal{L}(\theta, \mathcal{D})$$ is simple, such as a quadratic function. Therefore, we prefer to use an iterative algorithm to minimize $$\mathcal{L}(\theta, \mathcal{D})$$.
 
-**Gradient Descent**
+**Gradient descent**
 
 Gradient descent is an efficient iterative algorithm to find a local minimum of a differentiable function. As implicated by the name of the algorithm, gradient descent requires the gradient of the objective function with respect to the trainable parameters. We can use gradient descent to train $$\theta$$ of $$f$$ because $$\mathcal{L}(\theta, \mathcal{D})$$ is differentiable with respect to $$\theta$$.
 
@@ -392,7 +392,7 @@ The value of $$\eta$$ should be in a proper range because if $$\eta$$ is too sma
 
 Notice that the gradient descent algorithm can find a local minimum of the loss function but it does not guarantee (mostly not) that the local minimum is the global minimum. Fortunately, it does not matter if we use the local minimum because local minimums are very rare when $$f$$ has a lot of parameters and they are similar to each other and the global minimum. You can take a look at this [paper](https://arxiv.org/pdf/1412.0233.pdf) for more details.
 
-**Stochastic Gradient Descent**
+**Stochastic gradient descent**
 
 The gradient algorithm needs $$\frac{\partial}{\partial\theta}\mathcal{L}(\theta, \mathcal{D})$$ to update the value of $$\theta$$ in each epoch. However, if the data set is very large, it will need a lot of time and memory to compute $$\frac{\partial}{\partial\theta}\mathcal{L}(\theta, \mathcal{D})$$ on the entire training data set. [Stochastic gradient descent](https://en.wikipedia.org/wiki/Stochastic_gradient_descent) is a variant of gradient descent. Similar to gradient descent, stochastic gradient descent also has some epochs where each epoch takes advantage of the entire data set. However, stochastic gradient descent divides each epoch into a number of iterations and updates parameters in each iteration of an epoch.
 
@@ -521,19 +521,19 @@ Before the batch gradient descent training loop starts, we should do the followi
 
 In this phase, we should loop by epochs until the number of epochs reaches the predefined number of epochs. Each epoch has a number of iterations depending on the batch size, and we update $$\theta$$ in each iteration.
 
-*Step 1 - Starting an epoch*
+***Step 1 - Starting an epoch***
 
 At the beginning of an epoch, the indices of examples in $$\mathcal{D}$$ should be randomly shuffled. Then, $$\mathcal{D}$$ can be split into some batches and each batch has a fixed batch size. For example, if the batch size is $$N/10$$, then there are $$10$$ batches in an epoch. $$\mathcal{D}_S = (X_S, Y_S)$$ is a batch of $$\mathcal{D}$$, and we know $$X_i$$ is a row vector with three elements. $$X_S$$ can be considered as a matrix that has $$N_S$$ rows, and each row is $$X_i$$ where $$i \in S$$. $$Y_S$$ can be considered as a column vector with $$N_S$$ elements, and each element is $$Y_i$$ where $$i \in S$$. In addition to shuffling and splitting the data set, we should also read the current value of $$\theta$$.
 
-*Step 2 - Loop by iterations*
+***Step 2 - Loop by iterations***
 
 We have $$N/N_S$$ batches of data, and each batch is used for an iteration in the current epoch. In each iteration, we update $$\theta$$ by $$\theta:=\theta-\eta \frac{\partial}{\partial \theta}\mathcal{L}(\theta, \mathcal{D}_S)$$ where $$\mathcal{D}_S = (X_S, Y_S)$$ is the batch of data for the corresponding iteration. We will explain the mathematical structure of an iteration as follows.
 
-*Step 2.1 - Starting an iteration*
+***Step 2.1 - Starting an iteration***
 
 At the beginning of an iteration, we should know which batch of data we are going to use. Let us say we use $$\mathcal{D}_S = (X_S, Y_S)$$. Also, we should read the current value of parameters $$\theta$$.
 
-*Step 2.2 - Backpropagation: forward pass*
+***Step 2.2 - Backpropagation: forward pass***
 
 In this step, we do the forward pass of backpropagation for our deep network with $$X_S$$ as the input.
 
@@ -602,7 +602,7 @@ $$
 \end{array}\right]
 $$
 
-*Step 2.3 - Backpropagation: backward pass*
+***Step 2.3 - Backpropagation: backward pass***
 
 Backward pass computes $$\frac{\partial}{\partial \theta} \mathcal{L}=\left\{\frac{\partial}{\partial \theta_{r}} \mathcal{L} \mid r=1:k\right\}$$ by the [chain rule](https://en.wikipedia.org/wiki/Chain_rule) in Calculus in the reverse order of forward pass. First, let $$k$$ equal $$3$$ and we compute the gradient of $$\mathcal{L}$$ with respect to $$\theta_3$$ where $$\theta_3 = (W_3, \boldsymbol{b}_3)$$. Specifically, we calculate $$\frac{\partial}{\partial \theta_{3}} \mathcal{L}= (\frac{\partial}{\partial W_3} \mathcal{L}, \frac{\partial}{\partial \boldsymbol{b}_3 } \mathcal{L})$$.
 
@@ -652,7 +652,7 @@ $$
 = \frac{\partial \mathcal{L}}{\partial X_S^{(2)}} W_1^{\top}
 $$
 
-*Step 2.4 - Ending and repeating iterations*
+***Step 2.4 - Ending and repeating iterations***
 
 We have computed the loss $$\mathcal{L}$$ by forward pass, and $$\frac{\partial}{\partial \theta} \mathcal{L}=\left\{\frac{\partial}{\partial \theta_{k}} \mathcal{L} \mid k=1: K\right\}$$ by backward pass. As we have $$(\frac{\partial}{\partial W_3} \mathcal{L} , \frac{\partial}{\partial \boldsymbol{x}_3} \mathcal{L} , \frac{\partial}{\partial W_1} \mathcal{L} , \frac{\partial}{\partial \boldsymbol{x}_1} \mathcal{L} )$$, we can update the parameters with step size $$\eta$$ by the following:
 
@@ -672,11 +672,11 @@ $$
 \boldsymbol{b}_1 := \boldsymbol{b}_1 - \eta \frac{\partial}{\partial \boldsymbol{b}_1} \mathcal{L}
 $$
 
-If unused batches remain in the current epoch, we return to *Step 2.1* to start a new iteration. If all the batches are used, we finish the current epoch.
+If unused batches remain in the current epoch, we return to ***Step 2.1*** to start a new iteration. If all the batches are used, we finish the current epoch.
 
-*Step 3 - Ending and repeating epochs*
+***Step 3 - Ending and repeating epochs***
 
-When we finish all the iterations in an epoch, we end the current epoch and come back to *Step 1* to start a new epoch. When the number of epochs reaches the predefined limit, we finish the batch gradient descent algorithm and export our deep network.
+When we finish all the iterations in an epoch, we end the current epoch and come back to ***Step 1*** to start a new epoch. When the number of epochs reaches the predefined limit, we finish the batch gradient descent algorithm and export our deep network.
 
 ### Computational Example
 
@@ -743,8 +743,8 @@ $$
 
 If you are interested, you can try to complete one iteration in the first epoch by yourself. Here are our results for the first iteration in the first epoch if we choose $$\mathcal{D}_S = \mathcal{D}_1$$.
 
-- In *Step 2.2*, we have the training loss $$\mathcal{L}=100$$.
-- In *Step 2.3*, we have $$(\frac{\partial}{\partial W_3} \mathcal{L} , \frac{\partial}{\partial \boldsymbol{x}_3} \mathcal{L} , \frac{\partial}{\partial W_1} \mathcal{L} , \frac{\partial}{\partial \boldsymbol{x}_1} \mathcal{L})$$ at $$\theta = \theta_{\mathrm{init}}$$ and $$\mathcal{D}_S = \mathcal{D}_1$$.
+- In ***Step 2.2***, we have the training loss $$\mathcal{L}=100$$.
+- In ***Step 2.3***, we have $$(\frac{\partial}{\partial W_3} \mathcal{L} , \frac{\partial}{\partial \boldsymbol{x}_3} \mathcal{L} , \frac{\partial}{\partial W_1} \mathcal{L} , \frac{\partial}{\partial \boldsymbol{x}_1} \mathcal{L})$$ at $$\theta = \theta_{\mathrm{init}}$$ and $$\mathcal{D}_S = \mathcal{D}_1$$.
 
 $$
 \left.\frac{\partial}{\partial W_3} \mathcal{L}\right|_{\theta_{\mathrm{init}}, D_1} = \left[\begin{array}{lll} -800 & -20 & 0\end{array}\right]^\top
@@ -767,7 +767,7 @@ $$
 \left.\frac{\partial}{\partial \boldsymbol{b}_1} \mathcal{L}\right|_{\theta_{\mathrm{init}}, D_1} = \left[\begin{array}{lll} -20 & -20 & 0\end{array}\right]
 $$
 
-- In *Step 2.4*, if $$\eta = 0.001$$, we have the updated parameters $$(W_3, \boldsymbol{b}_3, W_1, \boldsymbol{b}_1)$$.
+- In ***Step 2.4***, if $$\eta = 0.001$$, we have the updated parameters $$(W_3, \boldsymbol{b}_3, W_1, \boldsymbol{b}_1)$$.
 
 $$
 W_3 :=

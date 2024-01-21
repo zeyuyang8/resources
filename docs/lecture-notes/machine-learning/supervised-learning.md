@@ -602,7 +602,7 @@ $$
 \end{array}\right]
 $$
 
-*Step 2.2 - Backpropagation: backward pass*
+*Step 2.3 - Backpropagation: backward pass*
 
 Backward pass computes $$\frac{\partial}{\partial \theta} \mathcal{L}=\left\{\frac{\partial}{\partial \theta_{r}} \mathcal{L} \mid r=1:k\right\}$$ by the [chain rule](https://en.wikipedia.org/wiki/Chain_rule) in Calculus in the reverse order of forward pass. First, let $$k$$ equal $$3$$ and we compute the gradient of $$\mathcal{L}$$ with respect to $$\theta_3$$ where $$\theta_3 = (W_3, \boldsymbol{b}_3)$$. Specifically, we calculate $$\frac{\partial}{\partial \theta_{3}} \mathcal{L}= (\frac{\partial}{\partial W_3} \mathcal{L}, \frac{\partial}{\partial \boldsymbol{b}_3 } \mathcal{L})$$.
 
@@ -652,7 +652,7 @@ $$
 = \frac{\partial \mathcal{L}}{\partial X_S^{(2)}} W_1^{\top}
 $$
 
-*Step 2.3 - Ending and repeating iterations*
+*Step 2.4 - Ending and repeating iterations*
 
 We have computed the loss $$\mathcal{L}$$ by forward pass, and $$\frac{\partial}{\partial \theta} \mathcal{L}=\left\{\frac{\partial}{\partial \theta_{k}} \mathcal{L} \mid k=1: K\right\}$$ by backward pass. As we have $$(\frac{\partial}{\partial W_3} \mathcal{L} , \frac{\partial}{\partial \boldsymbol{x}_3} \mathcal{L} , \frac{\partial}{\partial W_1} \mathcal{L} , \frac{\partial}{\partial \boldsymbol{x}_1} \mathcal{L} )$$, we can update the parameters with step size $$\eta$$ by the following:
 

@@ -1,12 +1,12 @@
 ---
-title: Python Style Guide
+title: Coding Style Guidelines
 layout: default
 parent: Python
 grand_parent: Programming
 nav_order: 1
 ---
 
-# Python Style Guide
+# Coding Style Guidelines
 
 **Note:** This page is adapted from [fundamentals of computing specialization](https://www.coursera.org/specializations/computer-fundamentals).
 
@@ -37,7 +37,6 @@ def welcome(location: str):
         A string containing a welcome message.
     """
     return 'Welcome to the' + location
-
 ```
 
 These docstrings are treated specially in Python, as they allow the system to automatically give you documentation for programs and functions. At the command prompt, you can type `help(...)`, and it will return the docstring for whatever the argument you passed to help is.
@@ -75,7 +74,7 @@ Global variables should never be used in this course. Avoiding their use is good
 
 There is one exception to this rule: you may have global constants. Because the Python language does not actually support constants, by convention, Python programmers use global variables with names that are in all capital letters for constants. When you see a variable with a name in all capital letters, you should always assume that it is a constant and you should **never** change it. Again, such global constants are the only global variables that will be allowed in this specialization.
 
-### Names
+## Names
 
 The first character of a name of a variable or a function should follow these conventions:
 

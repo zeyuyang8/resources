@@ -164,7 +164,7 @@ You may wonder why we use MSE in regression and mean cross-entropy in classifica
 
 There are various classes of $$f$$ that can be used for regression/classification. Linear models including linear regression, logistic regression, etc. are often applied to simple data sets. Linear regression is for regression and logistic regression is for classification, although its name contains "regression". Deep networks, on the other hand, are more powerful than linear models, especially when dealing with complex data sets, but deep networks take more time to train than linear models. Deep networks can be used for either regression or classification, depending on the structure of deep networks. We describe deep networks in section [Supervised Learning with Deep Networks](#supervised-learning-with-deep-networks).
 
-Once we choose a class of $$f$$ and design its structure, what we need to do is to train its parameters $$\theta$$ by minimizing $$\mathcal{L}(\theta, \mathcal{D})$$ on the training set and evaluate $$f$$ on the test set. We will explain more details about optimization in section [Training a Deep Network](#training-a-deep-network).
+Once we choose a class of $$f$$ and design its structure, what we need to do is to train its parameters $$\theta$$ by minimizing $$\mathcal{L}(\theta, \mathcal{D})$$ on the training set and evaluate $$f$$ on the test set. We will explain more details about optimization in section [Training Deep Networks](#training-deep-networks).
 
 ## Supervised Learning with Deep Networks
 

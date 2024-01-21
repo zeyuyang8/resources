@@ -5,4 +5,4 @@ parent: Deep Learning
 grand_parent: Blogs
 ---
 
-## Contrastive Learning
+# Contrastive Learning

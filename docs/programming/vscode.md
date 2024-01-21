@@ -5,6 +5,6 @@ parent: Programming
 nav_order: 1
 ---
 
-## Visual Studio Code
+# Visual Studio Code
 
-### Extensions
+## Extensions

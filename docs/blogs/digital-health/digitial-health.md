@@ -6,4 +6,4 @@ has_children: true
 permalink: docs/blogs/digital-health
 ---
 
-## Digital Health
+# Digital Health

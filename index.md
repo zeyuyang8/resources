@@ -5,7 +5,7 @@ nav_order: 1
 permalink: /
 ---
 
-## Resources
+# Resources
 
 Hope our website helps you with your research!
 

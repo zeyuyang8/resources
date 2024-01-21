@@ -5,7 +5,7 @@ parent: Lecture Notes
 nav_order: 1
 ---
 
-## Reading List
+# Reading List
 {: .no_toc}
 
 Table of Contents
@@ -14,7 +14,7 @@ Table of Contents
 - TOC
 {:toc}
 
-### Machine Learning
+## Machine Learning
 
 **Textbooks**
 

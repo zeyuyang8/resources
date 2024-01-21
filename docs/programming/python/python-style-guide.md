@@ -6,7 +6,7 @@ grand_parent: Programming
 nav_order: 1
 ---
 
-## Python Style Guide
+# Python Style Guide
 
 **Note:** This page is adapted from [fundamentals of computing specialization](https://www.coursera.org/specializations/computer-fundamentals).
 
@@ -14,7 +14,7 @@ In our projects, adherence to our coding style guidelines is expected. These gui
 
 Here are some of the style guidelines that we will follow in our projects. As you interact with we-make-python-styleguide, you will get more exposure to these guidelines.
 
-### Documenation
+## Documenation
 
 Documentation strings ("docstrings") are an integral part of the Python language. They need to be in the following places:
 
@@ -42,7 +42,7 @@ def welcome(location: str):
 
 These docstrings are treated specially in Python, as they allow the system to automatically give you documentation for programs and functions. At the command prompt, you can type `help(...)`, and it will return the docstring for whatever the argument you passed to help is.
 
-### Comments
+## Comments
 
 Comments should describe how a section of code is accomplishing something. You should not comment obvious code. Instead, you should document complex code and/or design decisions. Comments and docstrings are not interchangeable. Comments start with the "#" character. While you will see some Python programmers do this, you should **not** comment your code by putting a multi-line string in the middle of your program. That is not actually a comment, rather it is just a string in the middle of your program!
 
@@ -69,7 +69,7 @@ val = some_complicated_expression
 
 Note that docstrings are multi-line strings, but they do not violate this convention because docstrings and comments are different and serve different purposes in a program.
 
-### Global Variables
+## Global Variables
 
 Global variables should never be used in this course. Avoiding their use is good programming practice in any language. While programmers will sometimes break this rule, you should not break this rule in this course.
 
@@ -84,15 +84,15 @@ The first character of a name of a variable or a function should follow these co
 
 Further, we will follow the common Python convention that variable and function names should not have any capital letters in them. You can separate words in a name with an underscore character, as follows: `some_variable_name`. As previously noted, constants should be in all capital letters, such as: `THIS_IS_A_CONSTANT`.
 
-### Indentation
+## Indentation
 
 Each indentation level should be indented by 4 spaces. As Python requires indentation to be consistent, it is important not to mix tabs and spaces. You should never use tabs for indentation. Instead, all indentation levels should be 4 spaces.  Additionally, lines should be limited to a length of some number of characters.
 
-### Scope
+## Scope
 
 You should not use names that knowingly duplicate other names in an outer scope. This would make the name in the outer scope impossible to access. In particular, you should never use names that are the same as existing Python built-in functions. For example, if you were to name one of your local variables `max` inside of a function, you would then not be able to call `max()` from within that function.
 
-### Arguments and Local Variables
+## Arguments and Local Variables
 
 While there is not necessarily a maximum number of arguments a function can take or a maximum number of local variables you can have, too many arguments or variables lead to unnecessarily complex and unreadable programs. The style checker will enforce maximum numbers of arguments and variables, etc. If you run into limits that the style checker complains about, you should restructure your program to break it into smaller pieces. This will result in more readable and maintainable code.
 

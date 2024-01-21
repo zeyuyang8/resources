@@ -6,4 +6,4 @@ has_children: true
 permalink: docs/blogs/deep-learning
 ---
 
-## Deep Learning
+# Deep Learning

@@ -5,9 +5,9 @@ parent: Craving
 grand_parent: Datasets
 ---
 
-## Data Format
+# Data Format
 
-### Fitbit
+## Fitbit
 
 ```bash
 fitbit

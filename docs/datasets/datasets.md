@@ -5,9 +5,9 @@ has_children: true
 permalink: docs/datasets
 ---
 
-## Datasets
+# Datasets
 
-### Naming Convention
+## Naming Convention
 
 We set a standard naming convention for all datasets. This is to ensure that all datasets are organized in a consistent manner.
 

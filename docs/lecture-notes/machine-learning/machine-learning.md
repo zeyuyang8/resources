@@ -6,4 +6,4 @@ has_children: true
 permalink: docs/lecture-notes/machine-learning
 ---
 
-## Machine Learning
+# Machine Learning

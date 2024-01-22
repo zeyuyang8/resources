@@ -15,7 +15,3 @@ Table of Contents
 {:toc}
 
 ## Related Links
-
-### Blog Posts
-
-- [Python Packaging: Hate, hate, hate everywhere](https://hynek.me/articles/python-app-deps-2018/)

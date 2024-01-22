@@ -38,19 +38,19 @@ Suppose we have a data set that records Boston's house price. The input includes
 | $$50$$     | $$1$$                  | $$0$$               | $$125$$    |
 | $$50$$     | $$0$$                  | $$1$$               | $$150$$    |
 
-For simplicity, let us denote all the input entries of the data set by a matrix $$X$$ where each row is an input entry. $$X_{i,*}$$ is the $$i^{\text{th}}$$ row of the matrix, and we use a simpler notation $$X_{i}$$ to represent the $$i^{\text{th}}$$ row of $$X$$. Furthermore, $$X_{i,j}$$ means the $$j^{\text{th}}$$ element in the $$i^{\text{th}}$$  row. For the data set in the table above, $$X$$ should be:
+For simplicity, let us denote all the input entries of the data set by a matrix $$\mathbf{X}$$ where each row is an input entry. $$\mathbf{X}_{i,*}$$ is the $$i^{\text{th}}$$ row of the matrix, and we use a simpler notation $$\mathbf{X}_{i}$$ to represent the $$i^{\text{th}}$$ row of $$\mathbf{X}$$. Furthermore, $$\mathbf{X}_{i,j}$$ means the $$j^{\text{th}}$$ element in the $$i^{\text{th}}$$  row. For the data set in the table above, $$\mathbf{X}$$ should be:
 
 $$
-X =
+\mathbf{X} =
 \begin{bmatrix}
-X_1 \\
-X_2 \\
-X_3
+\mathbf{X}_1 \\
+\mathbf{X}_2 \\
+\mathbf{X}_3
 \end{bmatrix} =
 \begin{bmatrix}
-X_{1,1} & X_{1,2} & X_{1,3} \\
-X_{2,1} & X_{2,2} & X_{2,3} \\
-X_{3,1} & X_{3,2} & X_{3,3}
+\mathbf{X}_{1,1} & \mathbf{X}_{1,2} & \mathbf{X}_{1,3} \\
+\mathbf{X}_{2,1} & \mathbf{X}_{2,2} & \mathbf{X}_{2,3} \\
+\mathbf{X}_{3,1} & \mathbf{X}_{3,2} & \mathbf{X}_{3,3}
 \end{bmatrix} =
 \begin{bmatrix}
 40 & 1 & 0 \\
@@ -59,14 +59,14 @@ X_{3,1} & X_{3,2} & X_{3,3}
 \end{bmatrix}
 $$
 
-Similarly, let $$Y$$ represent all the output entries of the data set, and $$Y_i$$ is the $$i^{\text{th}}$$ output entry. For the data set in the table above, $$Y$$ should be:
+Similarly, let $$\mathbf{Y}$$ represent all the output entries of the data set, and $$\mathbf{Y}_i$$ is the $$i^{\text{th}}$$ output entry. For the data set in the table above, $$\mathbf{Y}$$ should be:
 
 $$
-Y =
+\mathbf{Y} =
 \begin{bmatrix}
-Y_1 \\
-Y_2 \\
-Y_3
+\mathbf{Y}_1 \\
+\mathbf{Y}_2 \\
+\mathbf{Y}_3
 \end{bmatrix} =
 \begin{bmatrix}
 100 \\
@@ -79,14 +79,14 @@ $$
 
 The goal of supervised learning is to train a function that maps an input to output. Let us denote the function by $$f$$. The question is how do we know $$f$$ is good? When we say $$f$$ is good, it implicitly means $$f$$ is good at something. For example, $$f$$ is good at predicting Boston's house price, but $$f$$ could not be good at predicting others at all. Thus, if we define a loss to evaluate $$f$$, the loss depends on both $$f$$ itself and the data set we use. Since $$f$$ is determined by its parameters, we can say the loss is a function of the parameters of $$f$$ and the data set.
 
-Let us denote the parameters of $$f$$ by $$\theta$$, the data set by $$\mathcal{D}$$. $$\mathcal{D}$$ is a sequence of input-output pairs from $$X$$ and $$Y$$, and the length of $$\mathcal{D}$$ is $$N$$.The loss function for regression can be represented by $$\mathcal{L}_{\mathrm{R}}(\theta, \mathcal{D})$$. We often use mean squared error (MSE) as the loss function for regression problems.
+Let us denote the parameters of $$f$$ by $$\theta$$, the data set by $$\mathcal{D}$$. $$\mathcal{D}$$ is a sequence of input-output pairs from $$\mathbf{X}$$ and $$\mathbf{Y}$$, and the length of $$\mathcal{D}$$ is $$N$$.The loss function for regression can be represented by $$\mathcal{L}_{\mathrm{R}}(\theta, \mathcal{D})$$. We often use mean squared error (MSE) as the loss function for regression problems.
 
 $$
 \mathcal{L}_\mathrm{R}(\theta, \mathcal{D}) =
-\frac{1}{N} \sum_{i=1}^{N}(f_{\theta} (X_{i}) - Y_{i}) ^ 2
+\frac{1}{N} \sum_{i=1}^{N}(f_{\theta} (\mathbf{X}_{i}) - \mathbf{Y}_{i}) ^ 2
 $$
 
-$$f_{\theta} (X_{i})$$ means the output of $$f$$ given input $$X_i$$ and $$f$$ is determined by $$\theta$$.
+$$f_{\theta} (\mathbf{X}_{i})$$ means the output of $$f$$ given input $$\mathbf{X}_i$$ and $$f$$ is determined by $$\theta$$.
 
 ### Example - Bob's Action Classification
 
@@ -105,16 +105,16 @@ Suppose we use the same inputs of Boston's house price data set but exchange the
 All the input entries in the data set can be represented by:
 
 $$
-X =
+\mathbf{X} =
 \begin{bmatrix}
-X_1 \\
-X_2 \\
-X_3
+\mathbf{X}_1 \\
+\mathbf{X}_2 \\
+\mathbf{X}_3
 \end{bmatrix} =
 \begin{bmatrix}
-X_{1,1} & X_{1,2} & X_{1,3} \\
-X_{2,1} & X_{2,2} & X_{2,3} \\
-X_{3,1} & X_{3,2} & X_{3,3}
+\mathbf{X}_{1,1} & \mathbf{X}_{1,2} & \mathbf{X}_{1,3} \\
+\mathbf{X}_{2,1} & \mathbf{X}_{2,2} & \mathbf{X}_{2,3} \\
+\mathbf{X}_{3,1} & \mathbf{X}_{3,2} & \mathbf{X}_{3,3}
 \end{bmatrix} =
 \begin{bmatrix}
 40 & 1 & 0 \\
@@ -123,19 +123,19 @@ X_{3,1} & X_{3,2} & X_{3,3}
 \end{bmatrix}
 $$
 
-The categorical output is one-hot encoded as a vector so each row of $$Y$$ is a vector instead of a scalar. $$Y_i$$ is the $$i^{\text{th}}$$ row of $$Y$$ and $$Y_{i,j}$$ means the $$j^{\text{th}}$$ element in the $$i^{\text{th}}$$ row. For the data set in the table above, $$Y$$ should be:
+The categorical output is one-hot encoded as a vector so each row of $$\mathbf{Y}$$ is a vector instead of a scalar. $$\mathbf{Y}_i$$ is the $$i^{\text{th}}$$ row of $$\mathbf{Y}$$ and $$\mathbf{Y}_{i,j}$$ means the $$j^{\text{th}}$$ element in the $$i^{\text{th}}$$ row. For the data set in the table above, $$\mathbf{Y}$$ should be:
 
 $$
-Y =
+\mathbf{Y} =
 \begin{bmatrix}
-Y_1 \\
-Y_2 \\
-Y_3
+\mathbf{Y}_1 \\
+\mathbf{Y}_2 \\
+\mathbf{Y}_3
 \end{bmatrix} =
 \begin{bmatrix}
-Y_{1,1} & Y_{1,2} & Y_{1,3} \\
-Y_{2,1} & Y_{2,2} & Y_{2,3} \\
-Y_{3,1} & Y_{3,2} & Y_{3,3}
+\mathbf{Y}_{1,1} & \mathbf{Y}_{1,2} & \mathbf{Y}_{1,3} \\
+\mathbf{Y}_{2,1} & \mathbf{Y}_{2,2} & \mathbf{Y}_{2,3} \\
+\mathbf{Y}_{3,1} & \mathbf{Y}_{3,2} & \mathbf{Y}_{3,3}
 \end{bmatrix} =
 \begin{bmatrix}
 1 & 0 & 0 \\
@@ -146,17 +146,17 @@ $$
 
 **Loss function for classification**
 
-We want a vector-valued function $$f$$ whose output $$f_{\theta} (X_{i})$$ is the discrete probability distribution of Bob's action. $$f_{\theta} (X_{i})_j$$ is the $$j^{\text{th}}$$ element of the vector $$f_{\theta} (X_{i})$$ that represents the probability of the $$j^{\text{th}}$$ class. All $$f_{\theta}(X_i)_j$$ should be a real number between $$0$$ and $$1$$ and they sum up to $$1$$. For example, $$f_{\theta} (X_{i})$$ could be $$\left[\begin{array}{l} 0.7 & 0.2 & 0.1\end{array}\right]$$, which means Bob has a seventy percent chance to rent, a twenty percent chance to hesitate, and a ten percent chance to ignore.
+We want a vector-valued function $$f$$ whose output $$f_{\theta} (\mathbf{X}_{i})$$ is the discrete probability distribution of Bob's action. $$f_{\theta} (\mathbf{X}_{i})_j$$ is the $$j^{\text{th}}$$ element of the vector $$f_{\theta} (\mathbf{X}_{i})$$ that represents the probability of the $$j^{\text{th}}$$ class. All $$f_{\theta}(\mathbf{X}_i)_j$$ should be a real number between $$0$$ and $$1$$ and they sum up to $$1$$. For example, $$f_{\theta} (\mathbf{X}_{i})$$ could be $$\left[\begin{array}{l} 0.7 & 0.2 & 0.1\end{array}\right]$$, which means Bob has a seventy percent chance to rent, a twenty percent chance to hesitate, and a ten percent chance to ignore.
 
 The loss function for classification can be represented by $$\mathcal{L}_{\mathrm{C}}(\theta, \mathcal{D})$$. We often use mean [cross-entropy](https://en.wikipedia.org/wiki/Cross_entropy) as the loss function for classification problems.
 
 $$
 \mathcal{L}_\mathrm{C}(\theta, \mathcal{D})= - \frac{1}{N} \sum_{i=1}^{N}
 
-\sum_{j} Y_{i,j} \log f_{\theta} (X_{i})_j
+\sum_{j} \mathbf{Y}_{i,j} \log f_{\theta} (\mathbf{X}_{i})_j
 $$
 
-$$-\sum_{j}Y_{i,j}\log f_{\theta}(X_i)_j$$ is the cross-entropy for the $$i^{\text{th}}$$ input-output pair. $$f_{\theta} (X_i)$$ is a discrete probability distribution, and $$f_{\theta} (X_i)_j$$ is the $$j^{\text{th}}$$ element of the discrete probability distribution. $$\mathcal{L}_\mathrm{C}(\theta, \mathcal{D})$$ averages the cross-entropy over the data set. Notice that for the $$i^{\text{th}}$$ input-output pair, there is only one element (suppose it is $$Y_{i,j}$$) of $$Y_{i}$$ is $$1$$, and all the remaining elements of $$Y_{i}$$ are $$0$$. If the prediction $$f_{\theta} (X_i)$$ is almost exactly the same as $Y_i$, that is, $$f_{\theta} (X_i)_j$$ is close to $$1$$, and all the remaining elements are close to $$0$$, the cross-entropy for the $$i^{\text{th}}$$ input-output pair will be close to $$0$$.
+$$-\sum_{j}\mathbf{Y}_{i,j}\log f_{\theta}(\mathbf{X}_i)_j$$ is the cross-entropy for the $$i^{\text{th}}$$ input-output pair. $$f_{\theta} (\mathbf{X}_i)$$ is a discrete probability distribution, and $$f_{\theta} (\mathbf{X}_i)_j$$ is the $$j^{\text{th}}$$ element of the discrete probability distribution. $$\mathcal{L}_\mathrm{C}(\theta, \mathcal{D})$$ averages the cross-entropy over the data set. Notice that for the $$i^{\text{th}}$$ input-output pair, there is only one element (suppose it is $$\mathbf{Y}_{i,j}$$) of $$\mathbf{Y}_{i}$$ is $$1$$, and all the remaining elements of $$\mathbf{Y}_{i}$$ are $$0$$. If the prediction $$f_{\theta} (\mathbf{X}_i)$$ is almost exactly the same as $$\mathbf{Y}_i$$, that is, $$f_{\theta} (\mathbf{X}_i)_j$$ is close to $$1$$, and all the remaining elements are close to $$0$$, the cross-entropy for the $$i^{\text{th}}$$ input-output pair will be close to $$0$$.
 
 You may wonder why we use MSE in regression and mean cross-entropy in classification. The intuition is that we want to maximize the likelihood of the output in the data set given by the input and $$f$$. After a series of simplifications, we can get the loss functions like MSE and mean cross-entropy. You can take a look at [Probabilistic Machine Learning: An Introduction](https://probml.github.io/pml-book/book1.html) for more details.
 
@@ -175,8 +175,8 @@ Let us revise supervised learning before we start to explain how to use deep net
 Here are the notations we used in the previous section:
 
 - Labeled data - $$\mathcal{D}$$
-- All the input entries of labeled data - $$X$$
-- All the output entries of labeled data - $$Y$$
+- All the input entries of labeled data - $$\mathbf{X}$$
+- All the output entries of labeled data - $$\mathbf{Y}$$
 - The function that maps an input to output - $$f$$
 - All the parameters of the function - $$\theta$$
 - Loss function - $$\mathcal{L}$$
@@ -188,9 +188,9 @@ Deep networks, inspired by human brains, belong to a highly effective class of f
 Deep networks consist of multiple layers, and each layer must be a differentiable function. We compose layers into any kind of [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph), mapping input to output. In other words, the structure of deep networks is a directed acyclic graph consisting of differentiable layers. The simplest structure of deep networks is a chain with layers connected sequentially, which is also called multi-layer perceptron (MLP). Suppose a MLP has $$k$$ layers and let us denote the parameters of the function at the $$k^{\text{th}}$$ layer by $$\theta_k$$, the function at the $$k^{\text{th}}$$ layer by $$f_{\theta_k}$$. Then, we get:
 
 $$
-f_{\theta}(X_i) = f_{\theta_k}
+f_{\theta}(\mathbf{X}_i) = f_{\theta_k}
 
-(f_{\theta_{k-1}} (\cdots(f_{\theta_1} (X_i)) \cdots))
+(f_{\theta_{k-1}} (\cdots(f_{\theta_1} (\mathbf{X}_i)) \cdots))
 $$
 
 After we design the structure of a deep network, the total number of its parameters is fixed. A deep network has multiple layers, and each layer has its parameters except that some types of layers do not have parameters. The parameters of a deep network include the parameters at each layer.
@@ -211,16 +211,16 @@ Now we know the structure (how layers are connected) and parameters are the two 
 
 **Linear layers**
 
-Linear layers map a vector in one vector space to another vector space. The input is a row vector in $$M_1$$-dimensional space, and the output is a row vector in $$M_2$$-dimensional space. A linear layer multiplies the input row vector by a weight matrix whose shape is $$M_1$$ by $$M_2$$ and adds a bias row vector whose shape is $$1$$ by $$M_2$$. Let us say we have a linear layer at the $$k^{\text{th}}$$ layer of the deep network, so its parameters $$\theta_k$$ includes a weight matrix $$W_k$$ and a bias vector $$\boldsymbol{b}_k$$.
+Linear layers map a vector in one vector space to another vector space. The input is a row vector in $$M_1$$-dimensional space, and the output is a row vector in $$M_2$$-dimensional space. A linear layer multiplies the input row vector by a weight matrix whose shape is $$M_1$$ by $$M_2$$ and adds a bias row vector whose shape is $$1$$ by $$M_2$$. Let us say we have a linear layer at the $$k^{\text{th}}$$ layer of the deep network, so its parameters $$\theta_k$$ includes a weight matrix $$\mathbf{W}_k$$ and a bias vector $$\mathbf{b}_k$$.
 
 $$
-\theta_k = (W_k, \boldsymbol{b}_k)
+\theta_k = (\mathbf{W}_k, \mathbf{b}_k)
 $$
 
-If the input row vector is $$X_i$$, then the linear layer implements a transformation like this:
+If the input row vector is $$\mathbf{X}_i$$, then the linear layer implements a transformation like this:
 
 $$
-f_{\theta_{k}}\left(X_{i}\right) = X_{i}W_k + \boldsymbol{b}_k
+f_{\theta_{k}}\left(\mathbf{X}_{i}\right) = \mathbf{X}_{i}\mathbf{W}_k + \mathbf{b}_k
 $$
 
 Notice that If multiple linear layers are connected sequentially, the effect is equivalent to only one linear layer. For regression problems, a linear layer that maps a vector to a scalar can be used as the output layer of a deep network.
@@ -250,7 +250,7 @@ Here is a visualization of Sigmod, Tanh, and ReLU when the input is a scalar. Yo
   <img src="supervised-learning.assets/imgs/activation.png" width="90%" alt="activation">
 </p>
 
-Now we know what the common vectorized nonlinear activation functions look like if the input is a scalar. Let us say there is an input row vector $$X_{i}=\left[\begin{array}{l} 43 & 5 & -5 & 46\end{array}\right]$$ for an activation layer whose vectorized nonlinear activation function is ReLU. Then, the output of the activation layer should be:
+Now we know what the common vectorized nonlinear activation functions look like if the input is a scalar. Let us say there is an input row vector $$\mathbf{X}_{i}=\left[\begin{array}{l} 43 & 5 & -5 & 46\end{array}\right]$$ for an activation layer whose vectorized nonlinear activation function is ReLU. Then, the output of the activation layer should be:
 
 $$
 \rho(\left[\begin{array}{l} 43 & 5 & -5 & 46 \end{array}\right]) =
@@ -262,20 +262,20 @@ $$
 
 The second purpose of an activation layer is to be the output layer of a deep network to generate a probability score for classification problems. In this case, the input of the activation layer should be either a scalar (binary classification) or a vector (multiclass classification). For binary classification problems, we use Sigmoid to map the scalar real number input between negative infinity and positive infinity to a scalar real number output between $$0$$ and $$1$$ exclusive, which is the probability score. For multiclass classification problems, if the number of classes is $$M$$, then the input of the activation layer is a vector with $$M$$ elements, and we use Softmax to map the vector in $$M$$-dimensional space to a discrete probability distribution with length $$M$$.
 
-Unlike vectorized nonlinear activation functions for adding nonlinearity, as the output layer of a deep network for multiclass classification problems, Softmax does **not** perform an element-wise transformation to the input vector. Instead, Softmax sums up all the exponentials of the numbers in the input vector and uses the sum to divide each exponential. As a result, the input vector in $$M$$-dimensional space is normalized to a discrete probability distribution consisting of $$M$$ elements. Let us denote Softmax by $$\mu$$. If the input vector is $$X_i$$ with the length $$M$$, then $$\mu(X_{i})$$ is the discrete probability distribution consists of $$M$$ elements:
+Unlike vectorized nonlinear activation functions for adding nonlinearity, as the output layer of a deep network for multiclass classification problems, Softmax does **not** perform an element-wise transformation to the input vector. Instead, Softmax sums up all the exponentials of the numbers in the input vector and uses the sum to divide each exponential. As a result, the input vector in $$M$$-dimensional space is normalized to a discrete probability distribution consisting of $$M$$ elements. Let us denote Softmax by $$\mu$$. If the input vector is $$\mathbf{X}_i$$ with the length $$M$$, then $$\mu(\mathbf{X}_{i})$$ is the discrete probability distribution consists of $$M$$ elements:
 
 $$
-\mu(X_{i})=\frac{1}{\sum(e^{X_{i}}) }e^{X_{i}} = \left[\begin{array}{l}
-\frac{1}{\sum(e^{X_{i}}) }e^{X_{i,1}} &
+\mu(\mathbf{X}_{i})=\frac{1}{\sum(e^{\mathbf{X}_{i}}) }e^{\mathbf{X}_{i}} = \left[\begin{array}{l}
+\frac{1}{\sum(e^{\mathbf{X}_{i}}) }e^{\mathbf{X}_{i,1}} &
 \cdots &
-\frac{1}{\sum(e^{X_{i}}) }e^{X_{i,M}}
+\frac{1}{\sum(e^{\mathbf{X}_{i}}) }e^{\mathbf{X}_{i,M}}
 \end{array}\right]
 $$
 
 And we define:
 
 $$
-\sum(e^{X_i})=\sum_{j=1}^{M} e^{X_{i,j}}
+\sum(e^{\mathbf{X}_i})=\sum_{j=1}^{M} e^{\mathbf{X}_{i,j}}
 $$
 
 While Sigmoid can be used as a vectorized nonlinear activation function for adding nonlinearity, it can also be used as the output layer of a deep network for binary classification problems, and the input must be a scalar.
@@ -284,7 +284,7 @@ $$
 \sigma(a) =\frac{1}{1+e^{-a}}
 $$
 
-Suppose we have a scalar $$a=0$$ as the input of the activation layer (Sigmoid) which is also the output layer of a deep network for binary classification, and a vector $$X_{i} = \left[\begin{array}{l} 43 & 5 & 0 & 46 \end{array}\right]$$ as the input of the activation layer (Softmax) which is also the output layer of a deep network for multiclass classification.
+Suppose we have a scalar $$a=0$$ as the input of the activation layer (Sigmoid) which is also the output layer of a deep network for binary classification, and a vector $$\mathbf{X}_{i} = \left[\begin{array}{l} 43 & 5 & 0 & 46 \end{array}\right]$$ as the input of the activation layer (Softmax) which is also the output layer of a deep network for multiclass classification.
 
 $$
 \sigma(0) = \frac{1}{1 + e^{-0}} = 0.50
@@ -317,7 +317,7 @@ Deep networks can be used for regression if the output layer is a linear layer t
 
 In section [Example - Boston House Price Regression](#example---boston-house-price-regression), we make up a simple data set of Boston house prices. There is a real data set about Boston house prices and you can take a look at the details from [here](https://www.cs.toronto.edu/~delve/data/boston/bostonDetail.html). However, the Boston house price data set only has around five hundred entries, which is not quite enough for a deep network.
 
-We use the California house price data set ([link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_california_housing.html)) that has $$20640$$ entries, and each entry has $$8$$ numerical features and $$1$$ numerical output. All the input entries of the data set can be saved to $$X$$ that has $$20640$$ rows and $$8$$ columns. All the output entries of the data set can be saved to $$Y$$ that has $$20640$$ rows and $$1$$ column.
+We use the California house price data set ([link](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_california_housing.html)) that has $$20640$$ entries, and each entry has $$8$$ numerical features and $$1$$ numerical output. All the input entries of the data set can be saved to $$\mathbf{X}$$ that has $$20640$$ rows and $$8$$ columns. All the output entries of the data set can be saved to $$\mathbf{Y}$$ that has $$20640$$ rows and $$1$$ column.
 
 **Deep networks for regression**
 
@@ -343,7 +343,7 @@ The [MNIST](http://yann.lecun.com/exdb/mnist/) data set is a database that has a
 
 **Deep networks for classification**
 
-We want to construct a deep network with linear and activation layers. However, each input entry in the data set is a gray-scale image (two-dimensional matrix), not a vector. Therefore, we need to first flatten the $$28$$ by $$28$$ matrix into a vector with $$784$$ elements. All the flattened images in the data set can be saved to $$X$$ that has $$70000$$ rows and $$784$$ columns. All the output entries of the data set can be saved to $$Y$$ that has $$70000$$ rows and $$10$$ columns, as there are ten categories of digits.
+We want to construct a deep network with linear and activation layers. However, each input entry in the data set is a gray-scale image (two-dimensional matrix), not a vector. Therefore, we need to first flatten the $$28$$ by $$28$$ matrix into a vector with $$784$$ elements. All the flattened images in the data set can be saved to $$\mathbf{X}$$ that has $$70000$$ rows and $$784$$ columns. All the output entries of the data set can be saved to $$\mathbf{Y}$$ that has $$70000$$ rows and $$10$$ columns, as there are ten categories of digits.
 
 Then, we can design a deep network as shown in the figure below. You can see how the shape of the original input changes after each layer. The input layer is a linear layer whose weight matrix is $$784$$ by $$128$$, bias vector is $$1$$ by $$128$$. The second layer is an activation layer that uses ReLU to element-wise transform the output after the first layer. The third layer is a linear layer with a weight matrix of $$128$$ by $$10$$ and a bias vector of $$1$$ by $$10$$. The output layer is an activation layer that uses Softmax to map the $$1$$ by $$10$$ vector after the third layer to a discrete probability distribution with $$10$$ elements that sum up to $$1$$. Each element represents the probability of the input image being the corresponding digit.
 
@@ -360,8 +360,8 @@ Now we have the deep network's structure and need to optimize the parameters in 
 We introduced supervised learning and deep networks in the previous pages. The goal of supervised learning is to find a function mapping an input to output with minimal loss. A deep network can be considered as a function with parameters, and it maps an input to an output that is either a number (regression) or a probability distribution (classification). The properties of a deep network are determined by its structure (how layers are connected) and its parameters. After we design the structure of a deep network, we need to train its parameters by minimizing the loss of the deep network on the training data set and evaluate the performance of the deep network on the test data set. Here are the notations we used in the previous pages.
 
 - Labeled data - $$\mathcal{D}$$
-- All the input entries of labeled data - $$X$$
-- All the output entries of labeled data - $$Y$$
+- All the input entries of labeled data - $$\mathbf{X}$$
+- All the output entries of labeled data - $$\mathbf{Y}$$
 - The function that maps an input to output - $$f$$
 - All the parameters of the function - $$\theta$$
 - Loss function - $$\mathcal{L}$$
@@ -371,13 +371,13 @@ We introduced supervised learning and deep networks in the previous pages. The g
 We know that the essence of training $$\theta$$ of $$f$$ is to minimize $$\mathcal{L}(\theta, \mathcal{D})$$ on the training data set. Recall that the commonly used loss function for regression is mean squared error:
 
 $$
-\mathcal{L}_{\mathrm{R}}(\theta, \mathcal{D})=\frac{1}{N} \sum_{i=1}^{N}\left(f_{\theta}\left(X_{i}\right)-Y_{i}\right)^{2}
+\mathcal{L}_{\mathrm{R}}(\theta, \mathcal{D})=\frac{1}{N} \sum_{i=1}^{N}\left(f_{\theta}\left(\mathbf{X}_{i}\right)-\mathbf{Y}_{i}\right)^{2}
 $$
 
 The commonly used loss function for multiclass classification is mean cross-entropy:
 
 $$
-\mathcal{L}_{\mathrm{C}}(\theta, \mathcal{D})= - \frac{1}{N} \sum_{i=1}^{N} \sum_{j} Y_{i, j} \log f_{\theta}\left(X_{i}\right)_{j}
+\mathcal{L}_{\mathrm{C}}(\theta, \mathcal{D})= - \frac{1}{N} \sum_{i=1}^{N} \sum_{j} \mathbf{Y}_{i, j} \log f_{\theta}\left(\mathbf{X}_{i}\right)_{j}
 $$
 
 So how do find the value of $$\theta$$ that minimizes $$\mathcal{L}(\theta, \mathcal{D})$$? If $$\mathcal{L}(\theta, \mathcal{D})$$ is convex, we can compute the value of $$\theta$$ to make $$\frac{\partial}{\partial\theta}\mathcal{L}(\theta, \mathcal{D})$$, which is the the gradient of $$\mathcal{L}(\theta, \mathcal{D})$$ with respect to $$\theta$$, equal to zero, and that point is the global minimum. However, in most cases, $$\mathcal{L}(\theta, \mathcal{D})$$ is not convex and it is hard to calculate the value of $$\theta$$ to make $$\frac{\partial}{\partial\theta}\mathcal{L}(\theta, \mathcal{D})$$ equal to zero unless $$\mathcal{L}(\theta, \mathcal{D})$$ is simple, such as a quadratic function. Therefore, we prefer to use an iterative algorithm to minimize $$\mathcal{L}(\theta, \mathcal{D})$$.
@@ -399,7 +399,7 @@ The gradient algorithm needs $$\frac{\partial}{\partial\theta}\mathcal{L}(\theta
 Specifically, stochastic gradient descent randomly picks one instance of the training data set, and lets us denote the randomly picked instance of $$\mathcal{D}$$ by $$\mathcal{D}_i$$.
 
 $$
-\mathcal{D}_i = (X_{i},Y_{i})
+\mathcal{D}_i = (\mathbf{X}_{i},\mathbf{Y}_{i})
 $$
 
 As we explained earlier, the loss depends on both the deep network's parameters and the data set we use if the structure of the deep network is fixed. Stochastic gradient descent calculates the gradient of the loss on $$\mathcal{D}_i$$, which is $$\frac{\partial}{\partial\theta}\mathcal{L}(\theta, \mathcal{D}_i)$$, to update the parameters $$\theta$$ in each iteration of an epoch by the following:
@@ -430,22 +430,22 @@ The subset $$\mathcal{D}_S$$ should be randomly picked from $$\mathcal{D}$$ with
 
 [Backpropagation](https://en.wikipedia.org/wiki/Backpropagation) is an efficient algorithm to compute $$\mathcal{L}(\theta, \mathcal{D}_S)$$ and $$\frac{\partial}{\partial\theta}\mathcal{L}(\theta, \mathcal{D}_S)$$ for an iteration of an epoch in batch gradient descent. Batch gradient descent requires the value of $$\frac{\partial}{\partial\theta}\mathcal{L}(\theta, \mathcal{D}_S)$$, and batch gradient descent can be converted to gradient descent and stochastic gradient descent depending on the size of $$\mathcal{D}_S$$.
 
-We explained earlier how a deep network with multiple layers connected as a chain works. For an input $$X_i$$, the prediction of the deep network with $$k$$ layers connected as a chain is,
+We explained earlier how a deep network with multiple layers connected as a chain works. For an input $$\mathbf{X}_i$$, the prediction of the deep network with $$k$$ layers connected as a chain is,
 
 $$
-f_{\theta}(X_i) = f_{\theta_{k}}(f_{\theta_{k-1}} (\cdots(f_{\theta_{1}} (X_i)) \cdots))
+f_{\theta}(\mathbf{X}_i) = f_{\theta_{k}}(f_{\theta_{k-1}} (\cdots(f_{\theta_{1}} (\mathbf{X}_i)) \cdots))
 $$
 
-where $$\theta=(\theta_1, \theta_2, \cdots, \theta_k)$$. We can define $$X_S=\{ {X_i} \mid i \in S \}$$ and $$Y_S=\{ {Y_i} \mid i \in S \}$$ so that $$\mathcal{D}_S= (X_S, Y_S) = \{ (X_i, Y_i) \mid i \in S \}$$. If we have $$X_S$$ as the input of $$f_\theta$$, then the output is a batch of predictions.
+where $$\theta=(\theta_1, \theta_2, \cdots, \theta_k)$$. We can define $$\mathbf{X}_S=\{ {\mathbf{X}_i} \mid i \in S \}$$ and $$Y_S=\{ {\mathbf{Y}_i} \mid i \in S \}$$ so that $$\mathcal{D}_S= (\mathbf{X}_S, Y_S) = \{ (\mathbf{X}_i, \mathbf{Y}_i) \mid i \in S \}$$. If we have $$\mathbf{X}_S$$ as the input of $$f_\theta$$, then the output is a batch of predictions.
 
 $$
-f_{\theta}(X_S) = \{ f_{\theta}(X_i) \mid i \in S \}
+f_{\theta}(\mathbf{X}_S) = \{ f_{\theta}(\mathbf{X}_i) \mid i \in S \}
 $$
 
-Suppose the formula for comparing $$f_{\theta}(X_{{S}})$$ and $$Y_S$$ is $$\ell$$ (we explained mean squared error and mean cross-entropy), then the loss $$\mathcal{L}(\theta, \mathcal{D}_S)$$ is as follows:
+Suppose the formula for comparing $$f_{\theta}(\mathbf{X}_{{S}})$$ and $$Y_S$$ is $$\ell$$ (we explained mean squared error and mean cross-entropy), then the loss $$\mathcal{L}(\theta, \mathcal{D}_S)$$ is as follows:
 
 $$
-\mathcal{L}(\theta, \mathcal{D}_S) = \ell (f_{\theta}(X_S) , Y_S)
+\mathcal{L}(\theta, \mathcal{D}_S) = \ell (f_{\theta}(\mathbf{X}_S) , Y_S)
 $$
 
 The gradient of $$\mathcal{L}(\theta, \mathcal{D}_S)$$ with respect to each layer's parameter for a deep network with $$k$$ layers can be expressed as:
@@ -454,7 +454,7 @@ $$
 \frac{\partial}{\partial\theta}\mathcal{L}(\theta, \mathcal{D}_S) = \{ \frac{\partial}{\partial\theta_r}\mathcal{L}(\theta, \mathcal{D}_S) \mid r=1:k \}
 $$
 
-Here is the pseudocode of backpropagation for a chain deep network with $$k$$ layers. For simplicity, let us denote the input of the $$r^{\text{th}}$$ layer by $$X_S^{(r)}$$, the output of the $$r^{\text{th}}$$  layer by $$X_S^{(r+1)} = f_{\theta_{r}}(X_S^{(r)})$$, and the prediction of the deep network by $$X_S^{(k+1)} = f_{\theta_{k}}(X_S^{(k)}) = f_{\theta}(X_S)$$ because it is the output of the last layer. The formula for comparing $$f_{\theta}(X_S)$$ and $$Y_S$$ is $$\ell$$.
+Here is the pseudocode of backpropagation for a chain deep network with $$k$$ layers. For simplicity, let us denote the input of the $$r^{\text{th}}$$ layer by $$\mathbf{X}_S^{(r)}$$, the output of the $$r^{\text{th}}$$  layer by $$\mathbf{X}_S^{(r+1)} = f_{\theta_{r}}(\mathbf{X}_S^{(r)})$$, and the prediction of the deep network by $$\mathbf{X}_S^{(k+1)} = f_{\theta_{k}}(\mathbf{X}_S^{(k)}) = f_{\theta}(\mathbf{X}_S)$$ because it is the output of the last layer. The formula for comparing $$f_{\theta}(\mathbf{X}_S)$$ and $$Y_S$$ is $$\ell$$.
 
 <p align="center">
     <img src="supervised-learning.assets/imgs/backprop.png" width="90%" alt="backpropagation">
@@ -481,17 +481,17 @@ We will calculate a simple deep network for regression and optimize its paramete
 </p>
 
 $$
-f_{\theta}(X_i)=f_{\theta_3}(f_{\theta_2}(f_{\theta_1}(X_i)))
+f_{\theta}(\mathbf{X}_i)=f_{\theta_3}(f_{\theta_2}(f_{\theta_1}(\mathbf{X}_i)))
 $$
 
 $$
 \theta=(\theta_1,\theta_2,\theta_3)
 $$
 
-The first layer is a linear layer that maps a row vector in $$3$$-dimensional space to $$3$$-dimensional space. Its weight matrix $$W_1$$ has $$3$$ rows and $$3$$ columns, and its bias row vector $$\boldsymbol{b}_1$$ has $$3$$ elements. The second layer is an activation layer so $$\theta_2$$ contains nothing. The third layer is a linear layer that maps a row vector in $$3$$-dimensional space to $$1$$-dimensional space. Its weight matrix $$W_3$$ is $$3$$ by $$1$$, and its bias row vector $$\boldsymbol{b}_1$$ has $$1$$ element.
+The first layer is a linear layer that maps a row vector in $$3$$-dimensional space to $$3$$-dimensional space. Its weight matrix $$\mathbf{W}_1$$ has $$3$$ rows and $$3$$ columns, and its bias row vector $$\mathbf{b}_1$$ has $$3$$ elements. The second layer is an activation layer so $$\theta_2$$ contains nothing. The third layer is a linear layer that maps a row vector in $$3$$-dimensional space to $$1$$-dimensional space. Its weight matrix $$\mathbf{W}_3$$ is $$3$$ by $$1$$, and its bias row vector $$\mathbf{b}_1$$ has $$1$$ element.
 
 $$
-\theta_1 = (W_1, \boldsymbol{b}_1)
+\theta_1 = (\mathbf{W}_1, \mathbf{b}_1)
 $$
 
 $$
@@ -499,7 +499,7 @@ $$
 $$
 
 $$
-\theta_3 = (W_3, \boldsymbol{b}_3)
+\theta_3 = (\mathbf{W}_3, \mathbf{b}_3)
 $$
 
 In the following part, we will use batch gradient descent to optimize the parameters of our deep network.
@@ -514,7 +514,7 @@ Before the batch gradient descent training loop starts, we should do the followi
 
 - Set the number of epochs
 - Set a batch size $$N_S$$
-- Set a formula $$\ell$$ for comparing $$f_{\theta}(X_S)$$ and $$Y_S$$
+- Set a formula $$\ell$$ for comparing $$f_{\theta}(\mathbf{X}_S)$$ and $$Y_S$$
 - Initialize $$\theta$$
 
 **Phase 2 - Loop by epochs**
@@ -523,153 +523,153 @@ In this phase, we should loop by epochs until the number of epochs reaches the p
 
 ***Step 1 - Starting an epoch***
 
-At the beginning of an epoch, the indices of examples in $$\mathcal{D}$$ should be randomly shuffled. Then, $$\mathcal{D}$$ can be split into some batches and each batch has a fixed batch size. For example, if the batch size is $$N/10$$, then there are $$10$$ batches in an epoch. $$\mathcal{D}_S = (X_S, Y_S)$$ is a batch of $$\mathcal{D}$$, and we know $$X_i$$ is a row vector with three elements. $$X_S$$ can be considered as a matrix that has $$N_S$$ rows, and each row is $$X_i$$ where $$i \in S$$. $$Y_S$$ can be considered as a column vector with $$N_S$$ elements, and each element is $$Y_i$$ where $$i \in S$$. In addition to shuffling and splitting the data set, we should also read the current value of $$\theta$$.
+At the beginning of an epoch, the indices of examples in $$\mathcal{D}$$ should be randomly shuffled. Then, $$\mathcal{D}$$ can be split into some batches and each batch has a fixed batch size. For example, if the batch size is $$N/10$$, then there are $$10$$ batches in an epoch. $$\mathcal{D}_S = (\mathbf{X}_S, Y_S)$$ is a batch of $$\mathcal{D}$$, and we know $$\mathbf{X}_i$$ is a row vector with three elements. $$\mathbf{X}_S$$ can be considered as a matrix that has $$N_S$$ rows, and each row is $$\mathbf{X}_i$$ where $$i \in S$$. $$Y_S$$ can be considered as a column vector with $$N_S$$ elements, and each element is $$\mathbf{Y}_i$$ where $$i \in S$$. In addition to shuffling and splitting the data set, we should also read the current value of $$\theta$$.
 
 ***Step 2 - Loop by iterations***
 
-We have $$N/N_S$$ batches of data, and each batch is used for an iteration in the current epoch. In each iteration, we update $$\theta$$ by $$\theta:=\theta-\eta \frac{\partial}{\partial \theta}\mathcal{L}(\theta, \mathcal{D}_S)$$ where $$\mathcal{D}_S = (X_S, Y_S)$$ is the batch of data for the corresponding iteration. We will explain the mathematical structure of an iteration as follows.
+We have $$N/N_S$$ batches of data, and each batch is used for an iteration in the current epoch. In each iteration, we update $$\theta$$ by $$\theta:=\theta-\eta \frac{\partial}{\partial \theta}\mathcal{L}(\theta, \mathcal{D}_S)$$ where $$\mathcal{D}_S = (\mathbf{X}_S, Y_S)$$ is the batch of data for the corresponding iteration. We will explain the mathematical structure of an iteration as follows.
 
 ***Step 2.1 - Starting an iteration***
 
-At the beginning of an iteration, we should know which batch of data we are going to use. Let us say we use $$\mathcal{D}_S = (X_S, Y_S)$$. Also, we should read the current value of parameters $$\theta$$.
+At the beginning of an iteration, we should know which batch of data we are going to use. Let us say we use $$\mathcal{D}_S = (\mathbf{X}_S, Y_S)$$. Also, we should read the current value of parameters $$\theta$$.
 
 ***Step 2.2 - Backpropagation: forward pass***
 
-In this step, we do the forward pass of backpropagation for our deep network with $$X_S$$ as the input.
+In this step, we do the forward pass of backpropagation for our deep network with $$\mathbf{X}_S$$ as the input.
 
 $$
-X_S^{(1)} = \{X_i \mid i \in S \} =
+\mathbf{X}_S^{(1)} = \{\mathbf{X}_i \mid i \in S \} =
 
 \left[\begin{array}{c}
 
-\vdots \\ X_{i \in S} \\ \vdots
+\vdots \\ \mathbf{X}_{i \in S} \\ \vdots
 
 \end{array}\right]
 $$
 
 $$
-X_S^{(2)}  = f_{\theta_{1}}(X_S^{(1)} ) = \{   X_i^{(1)}   W_1 + \boldsymbol{b}_1  \mid i \in S \} =
+\mathbf{X}_S^{(2)}  = f_{\theta_{1}}(\mathbf{X}_S^{(1)} ) = \{   \mathbf{X}_i^{(1)}   \mathbf{W}_1 + \mathbf{b}_1  \mid i \in S \} =
 \left[\begin{array}{c}
 
-\vdots \\ X_{i \in S} ^{(1)}   W_1 + \boldsymbol{b}_1  \\ \vdots
+\vdots \\ \mathbf{X}_{i \in S} ^{(1)}   \mathbf{W}_1 + \mathbf{b}_1  \\ \vdots
 
 \end{array}\right]
 $$
 
 $$
-X_S^{(3)}  = f_{\theta_{2}} ( X_S^{(2)}  ) = \{
+\mathbf{X}_S^{(3)}  = f_{\theta_{2}} ( \mathbf{X}_S^{(2)}  ) = \{
 
-\rho ( X_i^{(2)} ) \mid i \in S \} =
+\rho ( \mathbf{X}_i^{(2)} ) \mid i \in S \} =
 
 \left[\begin{array}{c}
 
-\vdots \\ \rho ( X_{i \in S}^{(2)} )  \\ \vdots
+\vdots \\ \rho ( \mathbf{X}_{i \in S}^{(2)} )  \\ \vdots
 
 \end{array}\right]
 $$
 
 $$
-X_S^{(4)}  = f_{\theta_{3}}(X_S^{(3)} ) = \{   X_i^{(3)}   W_3 + \boldsymbol{b}_3  \mid i \in S \} =
+\mathbf{X}_S^{(4)}  = f_{\theta_{3}}(\mathbf{X}_S^{(3)} ) = \{   \mathbf{X}_i^{(3)}   \mathbf{W}_3 + \mathbf{b}_3  \mid i \in S \} =
 
 \left[\begin{array}{c}
 
-\vdots \\ X_{i \in S} ^{(3)}   W_3 + \boldsymbol{b}_3  \\ \vdots
+\vdots \\ \mathbf{X}_{i \in S} ^{(3)}   \mathbf{W}_3 + \mathbf{b}_3  \\ \vdots
 
 \end{array}\right]
 $$
 
-Here $$X_S^{(4)}$$ is the predictions of our deep network with $$3$$ layers as it is the output of the last layer. Then, we should compute the value of $$\mathcal{L}$$ with mean squared error. Notice that here $$\mathcal{L}$$ is a function of $$\theta$$ and $$\mathcal{D}_S$$.
+Here $$\mathbf{X}_S^{(4)}$$ is the predictions of our deep network with $$3$$ layers as it is the output of the last layer. Then, we should compute the value of $$\mathcal{L}$$ with mean squared error. Notice that here $$\mathcal{L}$$ is a function of $$\theta$$ and $$\mathcal{D}_S$$.
 
 $$
 \mathcal{L} = \ell
 
-(X_S^{(4)}, Y_S) = \frac{1}{N_S} \sum_{i \in S} (X_i^{(4)} - Y_i) ^ 2
+(\mathbf{X}_S^{(4)}, Y_S) = \frac{1}{N_S} \sum_{i \in S} (\mathbf{X}_i^{(4)} - \mathbf{Y}_i) ^ 2
 $$
 
-We should also compute the value of the gradient of $$\mathcal{L}$$ with respect to $$X_S^{(4)}$$ to finish forward pass.
+We should also compute the value of the gradient of $$\mathcal{L}$$ with respect to $$\mathbf{X}_S^{(4)}$$ to finish forward pass.
 
 $$
-\frac{\partial}{\partial X_S^{(4)} } \mathcal{L}=
+\frac{\partial}{\partial \mathbf{X}_S^{(4)} } \mathcal{L}=
 
-\frac{\partial}{\partial X_S^{(4)} } \ell\left(X_S^{(4)} , Y_S \right)
+\frac{\partial}{\partial \mathbf{X}_S^{(4)} } \ell\left(\mathbf{X}_S^{(4)} , Y_S \right)
 
-= \{ \frac{2}{|S|}  (X_i^{(4)} -  Y_i)  \mid i \in S \} =
+= \{ \frac{2}{|S|}  (\mathbf{X}_i^{(4)} -  \mathbf{Y}_i)  \mid i \in S \} =
 
 \left[\begin{array}{c}
 
-\vdots \\ \frac{2}{N_S}  (X_{i \in S}^{(4)} -  Y_{i \in S}) \\ \vdots
+\vdots \\ \frac{2}{N_S}  (\mathbf{X}_{i \in S}^{(4)} -  \mathbf{Y}_{i \in S}) \\ \vdots
 
 \end{array}\right]
 $$
 
 ***Step 2.3 - Backpropagation: backward pass***
 
-Backward pass computes $$\frac{\partial}{\partial \theta} \mathcal{L}=\left\{\frac{\partial}{\partial \theta_{r}} \mathcal{L} \mid r=1:k\right\}$$ by the [chain rule](https://en.wikipedia.org/wiki/Chain_rule) in Calculus in the reverse order of forward pass. First, let $$k$$ equal $$3$$ and we compute the gradient of $$\mathcal{L}$$ with respect to $$\theta_3$$ where $$\theta_3 = (W_3, \boldsymbol{b}_3)$$. Specifically, we calculate $$\frac{\partial}{\partial \theta_{3}} \mathcal{L}= (\frac{\partial}{\partial W_3} \mathcal{L}, \frac{\partial}{\partial \boldsymbol{b}_3 } \mathcal{L})$$.
+Backward pass computes $$\frac{\partial}{\partial \theta} \mathcal{L}=\left\{\frac{\partial}{\partial \theta_{r}} \mathcal{L} \mid r=1:k\right\}$$ by the [chain rule](https://en.wikipedia.org/wiki/Chain_rule) in Calculus in the reverse order of forward pass. First, let $$k$$ equal $$3$$ and we compute the gradient of $$\mathcal{L}$$ with respect to $$\theta_3$$ where $$\theta_3 = (\mathbf{W}_3, \mathbf{b}_3)$$. Specifically, we calculate $$\frac{\partial}{\partial \theta_{3}} \mathcal{L}= (\frac{\partial}{\partial \mathbf{W}_3} \mathcal{L}, \frac{\partial}{\partial \mathbf{b}_3 } \mathcal{L})$$.
 
 $$
-\frac{\partial}{\partial W_3} \mathcal{L} =
-\frac{\partial \mathcal{L}}{\partial X_S^{(4)}} \frac{\partial X_S^{(4)}}{\partial W_3} =  
-{X_S^{(3)}} ^{\top} \frac{\partial \mathcal{L}}{\partial X_S^{(4)}}
-$$
-
-$$
-\frac{\partial}{\partial \boldsymbol{b}_3} \mathcal{L} = \frac{\partial \mathcal{L}}{\partial X_S^{(4)}} \frac{\partial X_S^{(4)}}{\partial \boldsymbol{b}_3} = \frac{1}{|S|}
-\overrightarrow{1} \frac{\partial \mathcal{L}}{\partial X_S^{(4)}}
-$$
-
-$$\overrightarrow{1} $$ is an all-ones row vector. We also need to calculate $$\frac{\partial}{\partial X_S^{(3)}} \mathcal{L}$$ for computing $$\frac{\partial}{\partial \theta_{2}} \mathcal{L}$$.
-
-$$
-\frac{\partial}{\partial X_S^{(3)}} \mathcal{L} =
-\frac{\partial \mathcal{L}}{\partial X_S^{(4)}} \frac{\partial X_S^{(4)} }{\partial X_S^{(3)}} = \frac{\partial \mathcal{L}}{\partial X_S^{(4)}} W_3^{\top}
-$$
-
-Next, let $$k$$ equal $$2$$, and we want to compute $$\frac{\partial}{\partial \theta_{2}} \mathcal{L}$$ and $$\frac{\partial}{\partial X_S^{(2)} } \mathcal{L}$$. However, $$\theta_2 = \varnothing$$, so we only compute $$\frac{\partial}{\partial X_S^{(2)}} \mathcal{L}$$.
-
-$$
-\frac{\partial}{\partial X_S^{(2)}} \mathcal{L} =
-\frac{\partial \mathcal{L}}{\partial X_S^{(3)}} \frac{\partial X_S^{(3)}}{\partial X_S^{(2)}}
-$$
-
-Notice that in our deep network, $$\frac{\partial \mathcal{L}}{\partial X_S^{(3)}} $$ and $$X_S^{(2)}$$ has the same shape. The result of $$\frac{\partial \mathcal{L}}{\partial X_S^{(3)}} \frac{\partial X_S^{(3)}}{\partial X_S^{(2)}}$$ is equivalent to make the elements of $$\frac{\partial \mathcal{L}}{\partial X_S^{(3)}}$$ be $$0$$ at the positions where the elements of $$X_S^{(2)}$$ are less or equal to $$0$$. Finally, let $$k$$ equal $$1$$, and we can compute $$\frac{\partial}{\partial \theta_{1}} \mathcal{L}= (\frac{\partial}{\partial W_1} \mathcal{L}, \frac{\partial}{\partial \boldsymbol{b}_1 } \mathcal{L})$$ and $$\frac{\partial}{\partial X_S^{(1)} } \mathcal{L}$$.
-
-$$
-\frac{\partial}{\partial W_1} \mathcal{L} =
-\frac{\partial \mathcal{L}}{\partial X_S^{(2)}} \frac{\partial X_S^{(2)}}{\partial W_1} =
-{X_S^{(1)}} ^{\top} \frac{\partial \mathcal{L}}{\partial X_S^{(2)}}
+\frac{\partial}{\partial \mathbf{W}_3} \mathcal{L} =
+\frac{\partial \mathcal{L}}{\partial \mathbf{X}_S^{(4)}} \frac{\partial \mathbf{X}_S^{(4)}}{\partial \mathbf{W}_3} =  
+{\mathbf{X}_S^{(3)}} ^{\top} \frac{\partial \mathcal{L}}{\partial \mathbf{X}_S^{(4)}}
 $$
 
 $$
-\frac{\partial}{\partial \boldsymbol{b}_1} \mathcal{L} =
-\frac{\partial \mathcal{L}}{\partial X_S^{(2)}} \frac{\partial X_S^{(2)}}{\partial \boldsymbol{b}_1}
+\frac{\partial}{\partial \mathbf{b}_3} \mathcal{L} = \frac{\partial \mathcal{L}}{\partial \mathbf{X}_S^{(4)}} \frac{\partial \mathbf{X}_S^{(4)}}{\partial \mathbf{b}_3} = \frac{1}{|S|}
+\overrightarrow{1} \frac{\partial \mathcal{L}}{\partial \mathbf{X}_S^{(4)}}
+$$
+
+$$\overrightarrow{1} $$ is an all-ones row vector. We also need to calculate $$\frac{\partial}{\partial \mathbf{X}_S^{(3)}} \mathcal{L}$$ for computing $$\frac{\partial}{\partial \theta_{2}} \mathcal{L}$$.
+
+$$
+\frac{\partial}{\partial \mathbf{X}_S^{(3)}} \mathcal{L} =
+\frac{\partial \mathcal{L}}{\partial \mathbf{X}_S^{(4)}} \frac{\partial \mathbf{X}_S^{(4)} }{\partial \mathbf{X}_S^{(3)}} = \frac{\partial \mathcal{L}}{\partial \mathbf{X}_S^{(4)}} \mathbf{W}_3^{\top}
+$$
+
+Next, let $$k$$ equal $$2$$, and we want to compute $$\frac{\partial}{\partial \theta_{2}} \mathcal{L}$$ and $$\frac{\partial}{\partial \mathbf{X}_S^{(2)} } \mathcal{L}$$. However, $$\theta_2 = \varnothing$$, so we only compute $$\frac{\partial}{\partial \mathbf{X}_S^{(2)}} \mathcal{L}$$.
+
+$$
+\frac{\partial}{\partial \mathbf{X}_S^{(2)}} \mathcal{L} =
+\frac{\partial \mathcal{L}}{\partial \mathbf{X}_S^{(3)}} \frac{\partial \mathbf{X}_S^{(3)}}{\partial \mathbf{X}_S^{(2)}}
+$$
+
+Notice that in our deep network, $$\frac{\partial \mathcal{L}}{\partial \mathbf{X}_S^{(3)}} $$ and $$\mathbf{X}_S^{(2)}$$ has the same shape. The result of $$\frac{\partial \mathcal{L}}{\partial \mathbf{X}_S^{(3)}} \frac{\partial \mathbf{X}_S^{(3)}}{\partial \mathbf{X}_S^{(2)}}$$ is equivalent to make the elements of $$\frac{\partial \mathcal{L}}{\partial \mathbf{X}_S^{(3)}}$$ be $$0$$ at the positions where the elements of $$\mathbf{X}_S^{(2)}$$ are less or equal to $$0$$. Finally, let $$k$$ equal $$1$$, and we can compute $$\frac{\partial}{\partial \theta_{1}} \mathcal{L}= (\frac{\partial}{\partial \mathbf{W}_1} \mathcal{L}, \frac{\partial}{\partial \mathbf{b}_1 } \mathcal{L})$$ and $$\frac{\partial}{\partial \mathbf{X}_S^{(1)} } \mathcal{L}$$.
+
+$$
+\frac{\partial}{\partial \mathbf{W}_1} \mathcal{L} =
+\frac{\partial \mathcal{L}}{\partial \mathbf{X}_S^{(2)}} \frac{\partial \mathbf{X}_S^{(2)}}{\partial \mathbf{W}_1} =
+{\mathbf{X}_S^{(1)}} ^{\top} \frac{\partial \mathcal{L}}{\partial \mathbf{X}_S^{(2)}}
+$$
+
+$$
+\frac{\partial}{\partial \mathbf{b}_1} \mathcal{L} =
+\frac{\partial \mathcal{L}}{\partial \mathbf{X}_S^{(2)}} \frac{\partial \mathbf{X}_S^{(2)}}{\partial \mathbf{b}_1}
 = \frac{1}{|S|}
-\overrightarrow{1} \frac{\partial \mathcal{L}}{\partial X_S^{(2)}}
+\overrightarrow{1} \frac{\partial \mathcal{L}}{\partial \mathbf{X}_S^{(2)}}
 $$
 
 $$
-\frac{\partial}{\partial X_S^{(1)} } \mathcal{L} =
-\frac{\partial \mathcal{L}}{\partial X_S^{(2)} } \frac{\partial X_S^{(2)} }{\partial X_S^{(1)} }
-= \frac{\partial \mathcal{L}}{\partial X_S^{(2)}} W_1^{\top}
+\frac{\partial}{\partial \mathbf{X}_S^{(1)} } \mathcal{L} =
+\frac{\partial \mathcal{L}}{\partial \mathbf{X}_S^{(2)} } \frac{\partial \mathbf{X}_S^{(2)} }{\partial \mathbf{X}_S^{(1)} }
+= \frac{\partial \mathcal{L}}{\partial \mathbf{X}_S^{(2)}} \mathbf{W}_1^{\top}
 $$
 
 ***Step 2.4 - Ending and repeating iterations***
 
-We have computed the loss $$\mathcal{L}$$ by forward pass, and $$\frac{\partial}{\partial \theta} \mathcal{L}=\left\{\frac{\partial}{\partial \theta_{k}} \mathcal{L} \mid k=1: K\right\}$$ by backward pass. As we have $$(\frac{\partial}{\partial W_3} \mathcal{L} , \frac{\partial}{\partial \boldsymbol{x}_3} \mathcal{L} , \frac{\partial}{\partial W_1} \mathcal{L} , \frac{\partial}{\partial \boldsymbol{x}_1} \mathcal{L} )$$, we can update the parameters with step size $$\eta$$ by the following:
+We have computed the loss $$\mathcal{L}$$ by forward pass, and $$\frac{\partial}{\partial \theta} \mathcal{L}=\left\{\frac{\partial}{\partial \theta_{k}} \mathcal{L} \mid k=1: K\right\}$$ by backward pass. As we have $$(\frac{\partial}{\partial \mathbf{W}_3} \mathcal{L} , \frac{\partial}{\partial \mathbf{x}_3} \mathcal{L} , \frac{\partial}{\partial \mathbf{W}_1} \mathcal{L} , \frac{\partial}{\partial \mathbf{x}_1} \mathcal{L} )$$, we can update the parameters with step size $$\eta$$ by the following:
 
 $$
-W_3 := W_3 - \eta \frac{\partial}{\partial W_3} \mathcal{L}
-$$
-
-$$
-\boldsymbol{b}_3 := \boldsymbol{b}_3 - \eta \frac{\partial}{\partial \boldsymbol{b}_3} \mathcal{L}
+\mathbf{W}_3 := \mathbf{W}_3 - \eta \frac{\partial}{\partial \mathbf{W}_3} \mathcal{L}
 $$
 
 $$
-W_1 := W_1 - \eta \frac{\partial}{\partial W_1} \mathcal{L}
+\mathbf{b}_3 := \mathbf{b}_3 - \eta \frac{\partial}{\partial \mathbf{b}_3} \mathcal{L}
 $$
 
 $$
-\boldsymbol{b}_1 := \boldsymbol{b}_1 - \eta \frac{\partial}{\partial \boldsymbol{b}_1} \mathcal{L}
+\mathbf{W}_1 := \mathbf{W}_1 - \eta \frac{\partial}{\partial \mathbf{W}_1} \mathcal{L}
+$$
+
+$$
+\mathbf{b}_1 := \mathbf{b}_1 - \eta \frac{\partial}{\partial \mathbf{b}_1} \mathcal{L}
 $$
 
 If unused batches remain in the current epoch, we return to ***Step 2.1*** to start a new iteration. If all the batches are used, we finish the current epoch.
@@ -683,16 +683,16 @@ When we finish all the iterations in an epoch, we end the current epoch and come
 Suppose we have a synthetic data set as follows.
 
 $$
-X =
+\mathbf{X} =
 \begin{bmatrix}
-X_1 \\
-X_2 \\
-X_3 \\
+\mathbf{X}_1 \\
+\mathbf{X}_2 \\
+\mathbf{X}_3 \\
 \end{bmatrix} =
 \begin{bmatrix}
-X_{1,1} & X_{1,2} & X_{1,3} \\
-X_{2,1} & X_{2,2} & X_{2,3} \\
-X_{3,1} & X_{3,2} & X_{3,3} \\
+\mathbf{X}_{1,1} & \mathbf{X}_{1,2} & \mathbf{X}_{1,3} \\
+\mathbf{X}_{2,1} & \mathbf{X}_{2,2} & \mathbf{X}_{2,3} \\
+\mathbf{X}_{3,1} & \mathbf{X}_{3,2} & \mathbf{X}_{3,3} \\
 \end{bmatrix} =
 \begin{bmatrix}
 40 & 1 & 0 \\
@@ -702,16 +702,16 @@ X_{3,1} & X_{3,2} & X_{3,3} \\
 $$
 
 $$
-Y =
+\mathbf{Y} =
 \begin{bmatrix}
-Y_1 \\
-Y_2 \\
-Y_3 \\
+\mathbf{Y}_1 \\
+\mathbf{Y}_2 \\
+\mathbf{Y}_3 \\
 \end{bmatrix} =
 \begin{bmatrix}
-Y_{1} \\
-Y_{1} \\
-Y_{1} \\
+\mathbf{Y}_{1} \\
+\mathbf{Y}_{1} \\
+\mathbf{Y}_{1} \\
 \end{bmatrix} =
 \begin{bmatrix}
 100 \\
@@ -723,39 +723,39 @@ $$
 We use batch gradient descent (batch size equals $$1$$) to train our deep network. And we initialize the parameters $$\theta = \theta_{\mathrm{init}}$$ as follows.
 
 $$
-W_1 =
+\mathbf{W}_1 =
 \left[\begin{array}{lll}1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1\end{array}\right]
 $$
 
 $$
-\boldsymbol{b}_1 =
+\mathbf{b}_1 =
 \left[\begin{array}{lll} 0 & 0 & 0\end{array}\right]
 $$
 
 $$
-W_3 =
+\mathbf{W}_3 =
 \left[\begin{array}{lll}1 \\1 \\ 1\end{array}\right]
 $$
 
 $$
-\boldsymbol{b}_3 = 49
+\mathbf{b}_3 = 49
 $$
 
 If you are interested, you can try to complete one iteration in the first epoch by yourself. Here are our results for the first iteration in the first epoch if we choose $$\mathcal{D}_S = \mathcal{D}_1$$.
 
 - In ***Step 2.2***, we have the training loss $$\mathcal{L}=100$$.
-- In ***Step 2.3***, we have $$(\frac{\partial}{\partial W_3} \mathcal{L} , \frac{\partial}{\partial \boldsymbol{x}_3} \mathcal{L} , \frac{\partial}{\partial W_1} \mathcal{L} , \frac{\partial}{\partial \boldsymbol{x}_1} \mathcal{L})$$ at $$\theta = \theta_{\mathrm{init}}$$ and $$\mathcal{D}_S = \mathcal{D}_1$$.
+- In ***Step 2.3***, we have $$(\frac{\partial}{\partial \mathbf{W}_3} \mathcal{L} , \frac{\partial}{\partial \mathbf{x}_3} \mathcal{L} , \frac{\partial}{\partial \mathbf{W}_1} \mathcal{L} , \frac{\partial}{\partial \mathbf{x}_1} \mathcal{L})$$ at $$\theta = \theta_{\mathrm{init}}$$ and $$\mathcal{D}_S = \mathcal{D}_1$$.
 
 $$
-\left.\frac{\partial}{\partial W_3} \mathcal{L}\right|_{\theta_{\mathrm{init}}, D_1} = \left[\begin{array}{lll} -800 & -20 & 0\end{array}\right]^\top
-$$
-
-$$
-\left.\frac{\partial}{\partial \boldsymbol{b}_3} \mathcal{L}\right|_{\theta_{\mathrm{init}}, D_1} = -20
+\left.\frac{\partial}{\partial \mathbf{W}_3} \mathcal{L}\right|_{\theta_{\mathrm{init}}, D_1} = \left[\begin{array}{lll} -800 & -20 & 0\end{array}\right]^\top
 $$
 
 $$
-\left.\frac{\partial}{\partial W_1} \mathcal{L}\right|_{\theta_{\mathrm{init}}, D_1}=
+\left.\frac{\partial}{\partial \mathbf{b}_3} \mathcal{L}\right|_{\theta_{\mathrm{init}}, D_1} = -20
+$$
+
+$$
+\left.\frac{\partial}{\partial \mathbf{W}_1} \mathcal{L}\right|_{\theta_{\mathrm{init}}, D_1}=
 \begin{bmatrix}
 -800 & -800  & 0 \\
 -20 & -20 &  0\\
@@ -764,28 +764,28 @@ $$
 $$
 
 $$
-\left.\frac{\partial}{\partial \boldsymbol{b}_1} \mathcal{L}\right|_{\theta_{\mathrm{init}}, D_1} = \left[\begin{array}{lll} -20 & -20 & 0\end{array}\right]
+\left.\frac{\partial}{\partial \mathbf{b}_1} \mathcal{L}\right|_{\theta_{\mathrm{init}}, D_1} = \left[\begin{array}{lll} -20 & -20 & 0\end{array}\right]
 $$
 
-- In ***Step 2.4***, if $$\eta = 0.001$$, we have the updated parameters $$(W_3, \boldsymbol{b}_3, W_1, \boldsymbol{b}_1)$$.
+- In ***Step 2.4***, if $$\eta = 0.001$$, we have the updated parameters $$(\mathbf{W}_3, \mathbf{b}_3, \mathbf{W}_1, \mathbf{b}_1)$$.
 
 $$
-W_3 :=
+\mathbf{W}_3 :=
 \left[\begin{array}{lll}1 \\1 \\ 1\end{array}\right] - 0.001 \left[\begin{array}{lll} -800 \\ -20 \\ 0 \end{array}\right] = \left[\begin{array}{lll} 1.8 \\ 1.02 \\ 1 \end{array}\right]
 $$
 
 $$
-\boldsymbol{b}_3 := 49 - 0.001 \times (-20) = 49.02
+\mathbf{b}_3 := 49 - 0.001 \times (-20) = 49.02
 $$
 
 $$
-W_1 :=
+\mathbf{W}_1 :=
 \left[\begin{array}{lll}1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1\end{array}\right] - 0.001 \left[\begin{array}{lll}-800 & -800 & 0\\ -20 & -20 & 0\\ 0 & 0 & 0\end{array}\right] =  
 \left[\begin{array}{lll}1.8 & 0.8 & 0 \\ 0.02 & 1.02 & 0 \\ 0 & 0 & 1\end{array}\right]
 $$
 
 $$
-\boldsymbol{b}_1 :=
+\mathbf{b}_1 :=
 \left[\begin{array}{lll} 0 & 0 & 0\end{array}\right] - 0.001 \left[\begin{array}{lll} -20 & -20 & 0\end{array}\right] = \left[\begin{array}{lll} 0.02 & 0.02 & 0\end{array}\right]
 $$
 
@@ -797,5 +797,5 @@ In this project, we will implement a neural network for Boston house price regre
 
 ### Colab Notebooks
 
-- [Neural Networks Implementation](https://colab.research.google.com/drive/1X2fbNvu8c5bLBmCUwarTWvXfm39SZIte?usp=sharing)
+- [Neural Networks Implementation](https://colab.research.google.com/drive/1\mathbf{X}2fbNvu8c5bLBmCUwarTWv\mathbf{X}fm39SZIte?usp=sharing)
 - [Neural Networks Visualization](https://colab.research.google.com/drive/1llqNm1V5Z1GrqCLTmdsMk3ZKgdvcpcWD?usp=sharing)

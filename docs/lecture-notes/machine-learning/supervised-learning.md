@@ -7,6 +7,7 @@ nav_order: 1
 ---
 
 # Supervised Learning
+{: .no_toc }
 
 Table of Contents
 {: .no_toc .text-delta }

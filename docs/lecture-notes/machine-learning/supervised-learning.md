@@ -798,5 +798,5 @@ In this project, we will implement a neural network for Boston house price regre
 
 ### Colab Notebooks
 
-- [Neural Networks Implementation](https://colab.research.google.com/drive/1\mathbf{X}2fbNvu8c5bLBmCUwarTWv\mathbf{X}fm39SZIte?usp=sharing)
+- [Neural Networks Implementation](https://colab.research.google.com/drive/1X2fbNvu8c5bLBmCUwarTWvXfm39SZIte?usp=sharing)
 - [Neural Networks Visualization](https://colab.research.google.com/drive/1llqNm1V5Z1GrqCLTmdsMk3ZKgdvcpcWD?usp=sharing)

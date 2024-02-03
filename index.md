@@ -22,4 +22,3 @@ $$
 - Markdown
 - Basics of HTML, CSS, and JavaScript
 - Jekyll (Just the Docs)
-- GitHub Pages

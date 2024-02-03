@@ -13,7 +13,7 @@ $$
 E = mc^2
 $$
 
-## Contents
+## Requirements
 
 - VS Code
 - GitHub account
@@ -21,5 +21,5 @@ $$
   - Git
 - Markdown
 - Basics of HTML, CSS, and JavaScript
-- Jekyll
+- Jekyll (Just the Docs)
 - GitHub Pages
